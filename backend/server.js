@@ -27,16 +27,106 @@ const emojiMap = {
   goodafternoon: "☀️",
   goodevening: "🌇",
    
-  joy: "😂",
-  excited: "🤩",
-  love: "❤️",
-  like: "👍",
-  tired: "😴",
-  scared: "😱",
-  surprised: "😮",
-  confused: "😕",
-  calm: "😌",
-  disappointed: "😞",
+  // ==================== Faces / Expressions ====================
+happy: "😃",
+grinning: "😀",
+grin: "😁",
+joy: "😂",
+rofl: "🤣",
+smiley: "😄",
+smile: "😄",
+sweat_smile: "😅",
+laughing: "😆",
+wink: "😉",
+blush: "😊",
+innocent: "😇",
+slight_smile: "🙂",
+upside_down: "🙃",
+relaxed: "☺️",
+yum: "😋",
+relieved: "😌",
+heart_eyes: "😍",
+kissing_heart: "😘",
+kissing: "😗",
+kissing_smiling_eyes: "😙",
+kissing_closed_eyes: "😚",
+stuck_out_tongue: "😛",
+stuck_out_tongue_winking_eye: "😜",
+stuck_out_tongue_closed_eyes: "😝",
+money_mouth: "🤑",
+nerd_face: "🤓",
+sunglasses: "😎",
+hugging_face: "🤗",
+thinking: "🤔",
+zipper_mouth: "🤐",
+raised_eyebrow: "🤨",
+neutral_face: "😐",
+expressionless: "😑",
+no_mouth: "😶",
+smirk: "😏",
+unamused: "😒",
+roll_eyes: "🙄",
+grimacing: "😬",
+lying_face: "🤥",
+relieved_face: "😌",
+pensive: "😔",
+sleepy: "😪",
+drooling_face: "🤤",
+sleeping: "😴",
+mask: "😷",
+thermometer_face: "🤒",
+head_bandage: "🤕",
+nauseated_face: "🤢",
+vomiting_face: "🤮",
+sneezing_face: "🤧",
+hot_face: "🥵",
+cold_face: "🥶",
+woozy_face: "🥴",
+dizzy_face: "😵",
+exploding_head: "🤯",
+cowboy_hat_face: "🤠",
+partying_face: "🥳",
+disguised_face: "🥸",
+scream: "😱",
+fearful: "😨",
+weary: "😩",
+tired_face: "😫",
+cry: "😢",
+sob: "😭",
+frowning: "☹️",
+anguished: "😧",
+open_mouth: "😮",
+astonished: "😲",
+flushed: "😳",
+pleading_face: "🥺",
+frowning_face: "😦",
+confused: "😕",
+slightly_frowning: "🙁",
+persevere: "😣",
+triumph: "😤",
+disappointed: "😞",
+sweat: "😓",
+weary_face: "😩",
+pouting: "😡",
+angry: "😠",
+rage: "😡",
+cursing: "🤬",
+smiling_imp: "😈",
+imp: "👿",
+skull: "💀",
+ghost: "👻",
+alien: "👽",
+robot: "🤖",
+clown_face: "🤡",
+poop: "💩",
+mask_face: "😷",
+face_with_hand_over_mouth: "🤭",
+shushing_face: "🤫",
+face_with_symbols_on_mouth: "🤬",
+face_with_monocle: "🧐",
+smiling_face_with_tear: "🥲",
+yawning_face: "🥱",
+
 
   pizza: "🍕",
   burger: "🍔",
@@ -857,23 +947,122 @@ const emojiMap = {
   
 };
 
-// API route
+// ---------- In-memory session data ----------
+let sessionData = {
+  quiz: {
+    movies: [
+      { emojis: "🎬👻🧙‍♂️", answer: "harry potter movie" },
+      { emojis: "🦁👑", answer: "lion king" },
+      { emojis: "🎬🦖", answer: "jurassic park" },
+      { emojis: "🚀🌌🛸", answer: "space travel" },
+    ],
+    travel: [
+      { emojis: "🏖️🌞🍹", answer: "beach vacation" },
+      { emojis: "🛳️🏝️🌴", answer: "cruise vacation" },
+      { emojis: "🦁🦓🌾", answer: "safari" },
+      { emojis: "🛶🌊🏞️", answer: "canoeing" },
+    ],
+    food: [
+      { emojis: "🧑‍🍳🍝", answer: "cooking pasta" },
+      { emojis: "🍎🥦🥩", answer: "healthy food" },
+      { emojis: "🍕🍔🍟", answer: "fast food" },
+      { emojis: "🍹☀️🏖️", answer: "summer drink" },
+    ],
+    activities: [
+      { emojis: "🏀⛹️‍♂️", answer: "playing basketball" },
+      { emojis: "🏃‍♂️💨", answer: "running fast" },
+      { emojis: "🧩🔍", answer: "puzzle solving" },
+      { emojis: "🎨🖌️🖼️", answer: "painting" },
+    ],
+    animals: [
+      { emojis: "🐶🦴", answer: "dog playing" },
+      { emojis: "🐱🐭", answer: "cat and mouse" },
+      { emojis: "🦁🦓🌾", answer: "safari" },
+      { emojis: "🐍🍎", answer: "temptation" },
+    ],
+    magic_fantasy: [
+      { emojis: "🧙‍♂️🪄", answer: "wizard magic" },
+      { emojis: "🧙‍♀️📚🪄", answer: "magic school" },
+      { emojis: "🦄🌈✨", answer: "magical unicorn" },
+      { emojis: "🏰👸🤴", answer: "fairy tale" },
+    ],
+  },
+  dailyChallenge: {
+    theme: "Food",
+    submissions: [],
+  },
+  scores: {},
+};
+
+
+
+// ----- Helper to get random quiz -----
+function getRandomQuiz() {
+  const categories = Object.keys(sessionData.quiz);
+  const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+  const quizzes = sessionData.quiz[randomCategory];
+  const quiz = quizzes[Math.floor(Math.random() * quizzes.length)];
+  return quiz;
+}
+
+// ----- Emoji Quiz API -----
+app.get("/emoji-quiz", (req, res) => {
+  const quiz = getRandomQuiz();
+  res.json({ emojis: quiz.emojis });
+});
+
+// ----- Submit Quiz Answer -----
+app.post("/submit-quiz", (req, res) => {
+  const { sessionId, emojis, answer } = req.body;
+  let quizFound;
+
+  for (let category in sessionData.quiz) {
+    quizFound = sessionData.quiz[category].find((q) => q.emojis === emojis);
+    if (quizFound) break;
+  }
+
+  let correct = false;
+  if (quizFound && quizFound.answer.toLowerCase() === answer.toLowerCase().trim()) {
+    correct = true;
+    if (!sessionData.scores[sessionId]) sessionData.scores[sessionId] = 0;
+    sessionData.scores[sessionId] += 10;
+  }
+
+  res.json({
+    correct,
+    score: sessionData.scores[sessionId] || 0,
+  });
+});
+
+// ----- Daily Emoji Challenge -----
+app.get("/daily-challenge", (req, res) => {
+  res.json({
+    theme: sessionData.dailyChallenge.theme,
+    submissions: sessionData.dailyChallenge.submissions,
+  });
+});
+
+app.post("/daily-challenge", (req, res) => {
+  const { sessionId, story } = req.body;
+  const submission = { sessionId, story };
+  sessionData.dailyChallenge.submissions.push(submission);
+  res.json({
+    message: "Submission received!",
+    submissions: sessionData.dailyChallenge.submissions,
+  });
+});
+
+// ----- Translate Text to Emoji -----
 app.post("/translate", (req, res) => {
   const { text } = req.body;
   if (!text) return res.json({ emoji: "" });
 
-  let words = text.toLowerCase().split(/\s+/);
-  let result = "";
+  const words = text.toLowerCase().split(/\s+/);
+  const result = words
+    .map((word) => emojiMap[word] || "❓")
+    .join(" ");
 
-  words.forEach((word) => {
-    if (emojiMap[word]) {
-      result += emojiMap[word] + " ";
-    } else {
-      result += "❓ "; // fallback
-    }
-  });
-
-  res.json({ emoji: result.trim() });
+  res.json({ emoji: result });
 });
 
 app.listen(PORT, () => {
