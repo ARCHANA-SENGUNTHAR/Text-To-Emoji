@@ -1,0 +1,145 @@
+/* App.css */
+
+/* ---------- BODY & APP CONTAINER ---------- */
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Animated Gradient Background */
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+  background-size: 800% 800%;
+  animation: gradientBG 20s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 50%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- HEADER ---------- */
+.App-header {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+  color: white;
+  width: 100%;
+  max-width: 600px;
+  transition: all 0.5s ease;
+}
+
+.App-header:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 15px 25px rgba(0,0,0,0.3);
+}
+
+/* ---------- HEADINGS ---------- */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffdd57;
+}
+
+/* ---------- TEXTAREA ---------- */
+textarea {
+  width: 90%;
+  max-width: 500px;
+  height: 100px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #61dafb;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  resize: none;
+}
+
+/* ---------- BUTTON ---------- */
+button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  /* Animated Gradient Button */
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  background-size: 200% 200%;
+  transition: all 0.3s ease;
+  animation: gradientButton 4s ease infinite;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+@keyframes gradientButton {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- RESULT DISPLAY ---------- */
+.result {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 1.5rem;
+  min-height: 50px;
+  word-wrap: break-word;
+}
+
+/* Emoji Animations */
+.result span {
+  display: inline-block;
+  animation: bounce 0.6s ease, float 2s infinite;
+  cursor: default;
+}
+
+.result span:hover {
+  animation: bounce 0.6s ease, shake 0.5s, sparkle 1s ease infinite;
+}
+
+/* ---------- ANIMATION KEYFRAMES ---------- */
+@keyframes bounce {
+  0% { transform: translateY(-10px); }
+  50% { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0px) rotate(0deg); }
+  25% { transform: translateX(-5px) rotate(-10deg); }
+  50% { transform: translateX(5px) rotate(10deg); }
+  75% { transform: translateX(-5px) rotate(-10deg); }
+  100% { transform: translateX(0px) rotate(0deg); }
+}
+
+@keyframes sparkle {
+  0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0; }
+  50% { text-shadow: 0 0 10px #ff0, 0 0 20px #ff69b4; }
+  100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0; }
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #555;
+}

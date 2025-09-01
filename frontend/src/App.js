@@ -1,48 +1,20 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import EmojiOutput from "./EmojiOutput";
+import Quiz from "./Quiz";
+import DailyChallenge from "./DailyChallenge";
+import TextToEmoji from "./TextToEmoji";
+import "./App.css"; // make sure this is imported
 
 function App() {
-  const [text, setText] = useState("");
-  const [emoji, setEmoji] = useState("");
-
-  const handleTranslate = async () => {
-    if (!text.trim()) return;
-    try {
-      const res = await axios.post("http://localhost:5000/translate", { text });
-      setEmoji(res.data.emoji);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   return (
-    <div style={{ fontFamily: "sans-serif", textAlign: "center", padding: "40px" }}>
-      <h1>✨ Text → Emoji Translator ✨</h1>
-      <textarea
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Type your feelings..."
-        rows="4"
-        style={{ width: "80%", padding: "10px", fontSize: "16px" }}
-      />
-      <br />
-      <button
-        onClick={handleTranslate}
-        style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          fontSize: "18px",
-          background: "#4CAF50",
-          color: "white",
-          border: "none",
-          borderRadius: "8px",
-          cursor: "pointer",
-        }}
-      >
-        Translate 🚀
-      </button>
-      <EmojiOutput emoji={emoji} />
+    <div className="App"> {/* Use App class here */}
+      <header className="App-header">
+        <h1>✨ Emoji FunZone  ✨</h1>
+        <h2> A Text to Emoji & Interactive Games Platform</h2>
+        <TextToEmoji />
+        <Quiz />
+        <DailyChallenge />
+      </header>
     </div>
   );
 }
