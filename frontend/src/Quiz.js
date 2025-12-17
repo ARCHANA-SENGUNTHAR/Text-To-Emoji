@@ -13,7 +13,11 @@ function Quiz() {
   }, []);
 
   const fetchQuiz = async () => {
-    const res = await axios.get("http://localhost:5000/emoji-quiz");
+    //const res = await axios.get("http://localhost:5000/emoji-quiz");
+    const res = await axios.get(
+  "https://text-to-emoji-rd94.onrender.com/emoji-quiz"
+);
+
     setQuiz(res.data);
     setResult("");
     setAnswer("");

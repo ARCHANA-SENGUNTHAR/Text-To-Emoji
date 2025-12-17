@@ -13,7 +13,11 @@ function DailyChallenge() {
   }, []);
 
   const fetchChallenge = async () => {
-    const res = await axios.get("http://localhost:5000/daily-challenge");
+   // const res = await axios.get("http://localhost:5000/daily-challenge");
+  const res = await axios.get(
+  "https://text-to-emoji-rd94.onrender.com/daily-challenge"
+);
+
     setTheme(res.data.theme);
     setSubmissions(res.data.submissions);
   };

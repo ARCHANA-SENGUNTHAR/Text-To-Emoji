@@ -9,7 +9,12 @@ function TextToEmoji() {
   const handleTranslate = async () => {
     if (!text.trim()) return;
     try {
-      const res = await axios.post("http://localhost:5000/translate", { text });
+     // const res = await axios.post("http://localhost:5000/translate", { text });
+    const res = await axios.post(
+  "https://text-to-emoji-rd94.onrender.com/translate",
+  { text }
+);
+
       setEmoji(res.data.emoji);
     } catch (err) {
       console.error(err);
