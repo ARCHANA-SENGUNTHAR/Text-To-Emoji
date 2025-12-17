@@ -20,7 +20,7 @@ Emoji FunZone is a fun and interactive web application that converts your text i
 ## 🚀 Demo
 
 Check out the live demo here:  
-*(coming soon)*
+[https://text-to-emoji1.netlify.app/]
 
 ---
 
