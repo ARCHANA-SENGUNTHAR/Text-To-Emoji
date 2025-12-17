@@ -1065,6 +1065,10 @@ app.post("/translate", (req, res) => {
   res.json({ emoji: result });
 });
 
-app.listen(PORT, () => {
+/* app.listen(PORT, () => {
   console.log(`✅ Backend running on http://localhost:${PORT}`);
+}) */;
+
+app.listen(PORT, () => {
+  console.log(`✅ Backend running on port ${PORT}`);
 });
