@@ -1,5 +1,5 @@
 import React from "react";
-import EmojiOutput from "./EmojiOutput";
+//import EmojiOutput from "./EmojiOutput";
 import Quiz from "./Quiz";
 import DailyChallenge from "./DailyChallenge";
 import TextToEmoji from "./TextToEmoji";
