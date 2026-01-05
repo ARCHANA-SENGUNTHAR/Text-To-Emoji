@@ -6,6 +6,15 @@ Emoji FunZone is a fun and interactive web application that converts your text i
 
 ---
 
+## 🚀 Project Visuals
+
+### 🌐 Website
+Check out the live website here: *[Live Website](https://text-to-emoji1.netlify.app/)*
+
+### 📽️Video
+Check out the project visualization demo with explanation: *[Live Video](https://youtu.be/or14rkT3Qlo)*
+
+---
 ## 🌟 Features
 
 - **Text to Emoji Translator:** Convert any text into a fun emoji sequence.
@@ -14,13 +23,6 @@ Emoji FunZone is a fun and interactive web application that converts your text i
 - **Interactive Animations:** Enjoy floating, bouncing, and sparkling emojis with a smooth gradient background.
 - **Responsive Design:** Works beautifully on desktop and mobile devices.
 - **Colorful Gradient Backgrounds:** Enjoy dynamic animated gradients that change smoothly over time.
-
----
-
-## 🚀 Demo
-
-Check out the live demo here:  
-[https://text-to-emoji1.netlify.app/]
 
 ---
 
@@ -66,7 +68,7 @@ Feel free to contribute! Open an issue or submit a pull request for improvements
 ## 📬 Contact
 
  **Archana Sengunthar**
-📧 Email: [archanagurusamy648@gmail.com](mailto:archanagurusamy648@gmail.com)  
+📧 Email: [archana.gurusamy.tech@gmail.com](mailto:archana.gurusamy.tech@gmail.com)  
 🔗 GitHub: [github.com/ARCHANA-SENGUNTHAR](https://github.com/ARCHANA-SENGUNTHAR)
 
 **Deepika S**
