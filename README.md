@@ -17,10 +17,13 @@ Emoji FunZone is a fun and interactive web application that converts your text i
 
 ---
 
-## 🚀 Demo
+## 🚀 Project Visuals
 
-Check out the live demo here:  
-[https://text-to-emoji1.netlify.app/]
+###🌐 Website
+Check out the live website here: *[Live Website](https://text-to-emoji1.netlify.app/)*
+
+### 📽️Video
+Check out the project visualization demo with explanation: *[Live Video](https://youtu.be/or14rkT3Qlo)*
 
 ---
 
