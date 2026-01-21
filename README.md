@@ -52,11 +52,7 @@ Check out the project visualization demo with explanation: *[Live Video](https:/
    npm start
    ```
 ---
-## 👩‍💻 Contribution
 
-Feel free to contribute! Open an issue or submit a pull request for improvements, new features, or bug fixes.
-
----
 ## 🎯 Future Enhancements
 
 - Add more complex games and quizzes.
